@@ -6,3 +6,7 @@ def countnucleotides (DNA):
         counts.append(DNA.count(i))
     counted_nucleotides=list(zip(nucleotides,counts))
     return (counted_nucleotides)
+
+def DNAtoRNA(DNA):
+    RNA=DNA.replace("T","U")
+    return RNA
