@@ -10,3 +10,48 @@ def countnucleotides (DNA):
 def DNAtoRNA(DNA):
     RNA=DNA.replace("T","U")
     return RNA
+
+#Reverse order of a pattern
+#input: Pattern
+#output: reverse of the pattern
+def Reverse(Pattern):
+    reverse = " "
+    for char in Pattern:
+        #correct order:
+        #reverse = char+reverse
+        #reverse order
+        reverse = char+reverse
+    return reverse
+
+# Complement of your pattern
+#input: pattern
+#complement of a pattern
+def Complement(Pattern):
+    comp = ""
+    for char in Pattern:
+        if char == "A":
+            comp=comp+"T"
+        if char == "C":
+            comp=comp+"G"
+        if char == "G":
+            comp=comp+"C"
+        if char == "T":
+            comp=comp+"A"
+    return (comp)
+
+#looking for the reverse compliment of a pattern in case the target DNA string of interest is on the other strand 
+# Input: Pattern
+# Output: The reverse complement of Pattern
+def ReverseComplement(Pattern):
+    Pattern = Reverse(Pattern) # reverse all letters in a string
+    Pattern = Complement(Pattern) # complement each letter in a string
+    return Pattern
+
+#To solve the Rabbits and Recurrence Relations	
+def Fibonacci_seq(n,k):
+    imm=[1,0]
+    mat=[0,1]
+    while len(mat)<n+1:
+        imm.append(mat[-1]*k)
+        mat.append(mat[-1]+imm[-2])
+    return mat[-1]
