@@ -1,9 +1,10 @@
-def countnucleotides (DNA):
-    nucleotides=list(set(DNA))
+#For counting the nucleotides of at strand
+def countnucleotides (strand):
+    nucleotides=list(set(strand))
     nucleotides.sort()
     counts=[]
     for i in nucleotides:
-        counts.append(DNA.count(i))
+        counts.append(strand.count(i))
     counted_nucleotides=list(zip(nucleotides,counts))
     return (counted_nucleotides)
 
@@ -47,7 +48,9 @@ def ReverseComplement(Pattern):
     Pattern = Complement(Pattern) # complement each letter in a string
     return Pattern
 
-#To solve the Rabbits and Recurrence Relations	
+#To solve the Rabbits and Recurrence Relations. This is the Fibonacci exercise. 
+#Basically two pairs of rabits mate for one month and the following month they give birth to (k) number of rabits. 
+#You are to find how many rabits are there at a specified month (n)
 def Fibonacci_seq(n,k):
     imm=[1,0]
     mat=[0,1]
@@ -55,3 +58,4 @@ def Fibonacci_seq(n,k):
         imm.append(mat[-1]*k)
         mat.append(mat[-1]+imm[-2])
     return mat[-1]
+
