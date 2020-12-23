@@ -59,3 +59,24 @@ def Fibonacci_seq(n,k):
         mat.append(mat[-1]+imm[-2])
     return mat[-1]
 
+def GC_content(strands):
+    GC_con=[]
+    for strand in strands:
+        print (len (strand))
+        tot=strand.count("G")+strand.count("C")
+        per=(tot/len(strand))*100
+        GC_con.append(per)
+    return GC_con
+GC_contents=GC_content(strands)
+def top_GC(genes,strands,GC_contents):
+    ind = np.argmax(GC_contents)
+    return genes[ind],GC_contents[ind]
+
+def HammingDistance(p, q):
+    count = 0
+    text=p
+    text2=q
+    for i in range(len(p)):
+        if text[i]!=text2[i]:
+            count +=1
+    return count
