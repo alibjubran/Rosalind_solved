@@ -100,3 +100,11 @@ def RNAtoPeptide(RNA,codontoAA_dict):
     annotated_peptide=AA
     peptide=AA[6:-4]
     return(peptide)
+
+def PatternMatching(Pattern, Genome):
+    positions = [] # output variable
+    for i in range(len(Genome)-len(Pattern)+1):
+        if Genome[i:i+len(Pattern)] == Pattern:
+            positions.append(i+1)
+    positions=(' '.join([str(x) for x in positions]))
+    return positions
