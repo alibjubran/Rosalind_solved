@@ -80,3 +80,23 @@ def HammingDistance(p, q):
         if text[i]!=text2[i]:
             count +=1
     return count
+
+#string of RNA strand
+RNA=text
+#Dictionary key (string of codon):value (string of one-letter AA)
+codontoAA_dict=records
+
+def RNAtoPeptide(RNA,codontoAA_dict):
+    AA="start-"
+    for i in range(len(RNA)-3+1):
+        codon= RNA[0:3]
+        #print (RNA)
+        RNA=RNA[3:]
+        #print (RNA)
+        #print (codon)
+        for key,v in records.items():
+            if codon==key:
+                AA=AA+v
+    annotated_peptide=AA
+    peptide=AA[6:-4]
+    return(peptide)
